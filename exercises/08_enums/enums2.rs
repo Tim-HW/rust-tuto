@@ -6,9 +6,21 @@ struct Point {
 
 #[derive(Debug)]
 enum Message {
-    // TODO: Define the different variants used below.
-}
+    // Variant for resizing with width and height
+    Resize { width: i32, height: i32 },
 
+    // Variant for moving to a point, assuming Point is a struct or tuple
+    Move(Point),
+
+    // Variant for echoing a string message
+    Echo(String),
+
+    // Variant for changing color with RGB values
+    ChangeColor(i32, i32, i32),
+
+    // Variant for quitting, no associated data
+    Quit,
+}
 impl Message {
     fn call(&self) {
         println!("{self:?}");
